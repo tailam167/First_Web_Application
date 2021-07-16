@@ -1,0 +1,116 @@
+<div class='card'>
+  <div class='card-header'
+       style='text-align: center; color: steelblue; height: 40px; font-weight: bold;'>
+    New Product
+  </div>
+  <div class="card-bdy">
+    <div class="col-md-7">
+      <form [formGroup]="productForm"
+            (ngSubmit)="saveEvent(productForm.value)"
+            novalidate>
+        <!-- Product Name -->
+        <div class="form-group"
+             [ngClass]="{'error': productName.invalid && productName.touched}">
+          <label for="productName">Product Name:</label>
+          <em *ngIf="productName.invalid && (productName.touched)">*Required</em>
+          <input formControlName="productName"
+                 required
+                 id="productName"
+                 type="text"
+                 class="form-control"
+                 placeholder="Name of your product..." />
+        </div>
+        <!-- Product Code -->
+        <div class="form-group"
+             [ngClass]="{'error': productCode.invalid && productCode.touched}">
+          <label for="productCode">Product Code:</label>
+          <em *ngIf="productCode.invalid && (productCode.touched)">*Required</em>
+          <input formControlName="productCode"
+                 required
+                 id="productCode"
+                 type="text"
+                 class="form-control"
+                 placeholder="Product Code..." />
+        </div>
+        <!-- Product Date -->
+        <div class="form-group"
+             [ngClass]="{'error': releaseDate.invalid && releaseDate.touched}">
+          <label for="releaseDate">Release Date:</label>
+          <em *ngIf="releaseDate.invalid && (releaseDate.touched)">*Required</em>
+          <input formControlName="releaseDate"
+                 required
+                 id="releaseDate"
+                 type="text"
+                 class="form-control"
+                 placeholder="Format Date (mm-dd-yyyy)..." />
+        </div>
+        <!-- Product Description -->
+        <div class="form-group"
+             [ngClass]="{'error': description.invalid && description.touched}">
+          <label for="description">Product Description:</label>
+          <em *ngIf="description.invalid && (description.touched)">*Required</em>
+          <input formControlName="description"
+                 required
+                 id="description"
+                 type="text"
+                 class="form-control"
+                 placeholder="Product Description..." />
+        </div>
+        <!-- Product Price -->
+        <div class="form-group"
+             [ngClass]="{'error': price.invalid && price.touched}">
+          <label for="price">Product Price:</label>
+          <em *ngIf="price.invalid && (price.touched)">*Required</em>
+          <input formControlName="price"
+                 required
+                 id="price"
+                 type="number"
+                 class="form-control"
+                 placeholder="Product Price..." />
+        </div>
+        <!-- Product Start Rating -->
+        <div class="form-group"
+             [ngClass]="{'error': starRating.invalid && starRating.touched}">
+          <label for="starRating">Product Rating:</label>
+          <em *ngIf="starRating.invalid && starRating.touched && starRating.errors?.required">*Required</em>
+          <em *ngIf="starRating.invalid && productForm.get('starRating')?.hasError('pattern')
+              || starRating.errors?.min || starRating.errors?.max">*Rating
+            must be between 1 and 5</em>
+          <input formControlName="starRating"
+                 id="starRating"
+                 type="number"
+                 class="form-control"
+                 placeholder="Product Rating..." />
+        </div>
+        <!-- Product Image -->
+        <div class="form-group"
+             [ngClass]="{'error': imageUrl.invalid && imageUrl.touched}">
+          <label for="imageUrl">Image:</label>
+          <em *ngIf="imageUrl.invalid && imageUrl.touched && imageUrl.errors?.required">*Required</em>
+          <em *ngIf="imageUrl.invalid && imageUrl.touched  && imageUrl.errors?.pattern">*Must
+            be a png or jpg url</em>
+          <input formControlName="imageUrl"
+                 required
+                 pattern=".*\/.*.(png|jpg)"
+                 id="imageUrl"
+                 type="text"
+                 class="form-control"
+                 placeholder="Product Image URL..." />
+          <br>
+          <img [src]="imageUrl.value"
+               *ngIf="imageUrl.valid"
+               [style.width.px]='200'
+               [style.margin.px]='2' />
+        </div>
+        <!-- Button -->
+        <button type="submit"
+                class="btn btn-primary">Save</button>
+        <button type="button"
+                class="btn btn-default pad-left"
+                (click)="cancel()">Cancel</button>
+        <span *ngIf="validMessage != ''"
+            class="has-info pad-left">{{validMessage}}</span>
+      </form>
+    </div>
+  </div>
+</div>

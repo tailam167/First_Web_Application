@@ -1,0 +1,133 @@
+<div class="modal-dialog"
+     role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title"
+          id="updateProductModalLabel">Update Product: {{editProduct.productName}}</h5>
+    </div>
+    <div class="modal-body">
+      <form #updateForm="ngForm"
+            novalidate>
+        <!-- Product ID -->
+        <div class="form-group">
+          <label hidden
+                 for="productId">Product ID</label>
+          <input type="hidden"
+                 ngModel="{{editProduct?.productId}}"
+                 name="productId"
+                 class="form-control"
+                 id="productId"
+                 readonly
+                 placeholder="Product ID...">
+        </div>
+        <!-- Product Name -->
+        <div class="form-group"
+             [ngClass]="{'error': updateForm.controls.productName?.invalid && updateForm.controls.productName?.touched}">
+          <label for="productName">Product Name</label>
+          <em
+              *ngIf="updateForm.controls.productName?.invalid && (updateForm.controls.productName?.touched)">*Required</em>
+          <input type="text"
+                 required
+                 ngModel="{{editProduct?.productName}}"
+                 name="productName"
+                 class="form-control"
+                 id="productName"
+                 placeholder="New Product Name...">
+        </div>
+        <!-- Product Code -->
+        <div class="form-group"
+             [ngClass]="{'error': updateForm.controls.productCode?.invalid && updateForm.controls.productCode?.touched}">
+          <label for="productCode">Product Code</label>
+          <em
+              *ngIf="updateForm.controls.productCode?.invalid && (updateForm.controls.productCode?.touched)">*Required</em>
+          <input type="productCode"
+                 required
+                 ngModel="{{editProduct?.productCode}}"
+                 name="productCode"
+                 class="form-control"
+                 id="productCode"
+                 placeholder="New Product Code...">
+        </div>
+        <!-- Release Date -->
+        <div class="form-group"
+             [ngClass]="{'error': updateForm.controls.releaseDate?.invalid && updateForm.controls.releaseDate?.touched}">
+          <label for="releaseDate">Release Date</label>
+          <em
+              *ngIf="updateForm.controls.releaseDate?.invalid && (updateForm.controls.releaseDate?.touched)">*Required</em>
+          <input type="text"
+                 required
+                 ngModel="{{editProduct?.releaseDate}}"
+                 name="releaseDate"
+                 class="form-control"
+                 id="releaseDate"
+                 placeholder="New Release Date (DD-MM-YYYY)...">
+        </div>
+        <!-- Description -->
+        <div class="form-group"
+             [ngClass]="{'error': updateForm.controls.description?.invalid && updateForm.controls.description?.touched}">
+          <label for="description">Description</label>
+          <em
+              *ngIf="updateForm.controls.description?.invalid && (updateForm.controls.description?.touched)">*Required</em>
+          <input type="text"
+                 required
+                 ngModel="{{editProduct?.description}}"
+                 name="description"
+                 class="form-control"
+                 id="description"
+                 name="description"
+                 placeholder="New Product Description...">
+        </div>
+        <!-- Price -->
+        <div class="form-group"
+             [ngClass]="{'error': updateForm.controls.price?.invalid && updateForm.controls.price?.touched}">
+          <label for="price">Price</label>
+          <em *ngIf="updateForm.controls.price?.invalid && (updateForm.controls.price?.touched)">*Required</em>
+          <input type="number"
+                 required
+                 ngModel="{{editProduct?.price}}"
+                 name="price"
+                 class="form-control"
+                 id="price"
+                 placeholder="New Product Price...">
+        </div>
+        <!-- Star Rating -->
+        <div class="form-group"
+             [ngClass]="{'error': updateForm.controls.starRating?.invalid && updateForm.controls.starRating?.touched}">
+          <label for="starRating">Rating</label>
+          <em
+              *ngIf="updateForm.controls.starRating?.invalid && (updateForm.controls.starRating?.touched)">*Required</em>
+          <input type="number"
+                 required
+                 ngModel="{{editProduct?.starRating}}"
+                 name="starRating"
+                 class="form-control"
+                 id="starRating"
+                 placeholder="New Product Rating...">
+        </div>
+        <!-- Image URL -->
+        <div class="form-group"
+             [ngClass]="{'error': updateForm.controls.imageUrl?.invalid && updateForm.controls.imageUrl?.touched}">
+          <label for="imageUrl">Image URL</label>
+          <em *ngIf="updateForm.controls.imageUrl?.invalid && (updateForm.controls.imageUrl?.touched)">*Required</em>
+          <input type="text"
+                 required
+                 ngModel="{{editProduct?.imageUrl}}"
+                 name="imageUrl"
+                 class="form-control"
+                 id="imageUrl"
+                 placeholder="New Product Image Url...">
+        </div>
+        <div class="modal-footer">
+          <span *ngIf="validMessage != ''"
+                class="has-info pad-left">{{validMessage}}</span>
+          <button (click)="onUpdateProduct(updateForm.value)"
+                  class="btn btn-primary"
+                  [disabled]="updateForm.invalid">Save changes</button>
+          <button type="button"
+                  (click)="cancel()"
+                  class="btn btn-secondary pad-left">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

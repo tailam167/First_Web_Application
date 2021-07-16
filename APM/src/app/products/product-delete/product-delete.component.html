@@ -1,0 +1,22 @@
+<div class="modal-dialog"
+     role="document"
+     id="updateProductModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title"
+          id="deleteModelLabel">Delete Product</h5>
+    </div>
+    <div class="modal-body">
+      <p>Do you want to delete product {{deleteProduct?.productName}}?</p>
+      <div class="modal-footer">
+        <button type="button"
+                class="btn btn-secondary"
+                (click)="cancel()"
+                data-dismiss="modal">No</button>
+        <button (click)="onDeleteProduct(deleteProduct?.productId)"
+                class="btn btn-danger"
+                data-dismiss="modal">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
