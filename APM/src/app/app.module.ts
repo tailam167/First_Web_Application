@@ -1,3 +1,4 @@
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -27,7 +28,9 @@ const appRoutes: Routes = [
       appRoutes,
       { enableTracing: true }
     ),
-    ProductModule
+    ProductModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   bootstrap: [AppComponent]
 })

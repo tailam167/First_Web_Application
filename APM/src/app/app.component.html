@@ -5,7 +5,7 @@
       <h1>Welcome To {{pageTitle}}</h1>
     </div>
     <div class="col-md-4"
-         style="text-align: right; margin-top: 0.3cm;">
+         style="text-align: right; margin-top: 0cm;">
       <img src={{imageUrl}}
            height="150px"
            width="170px">
@@ -20,7 +20,19 @@
              [routerLink]="['/products/list']">Product List</a></li>
         <li><a class="nav-link"
              [routerLink]="['/products/new']">Create Product</a></li>
+        <li><a class="nav-link" [routerLink]="['/login']" ></a>Login</li>
       </ul>
+      <form id="searchForm" class="navbar-form navbar-right">
+        <div class="form-group">
+          <input
+            type="text"
+            [(ngModel)]='listFilter'
+            class="form-control"
+            placeholder="Search Products..."
+          />
+        </div>
+      </form>
+      <button class="btn btn-primary">Search</button>
     </nav>
     <div class="container">
       <router-outlet></router-outlet>

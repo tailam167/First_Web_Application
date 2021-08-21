@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve -o",
+    "start": "ng serve --proxy-config proxy.conf.json -o",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -21,7 +21,10 @@
     "@angular/router": "~11.2.0",
     "@ng-bootstrap/ng-bootstrap": "^10.0.0",
     "bootstrap": "^5.0.1",
+    "cors": "^2.8.5",
+    "express-http-proxy": "^1.6.2",
     "font-awesome": "^4.7.0",
+    "port": "^0.8.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
