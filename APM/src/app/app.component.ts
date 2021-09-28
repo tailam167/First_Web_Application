@@ -12,7 +12,7 @@ import { IProducts } from './products/product.interface';
 
 // Class
 export class AppComponent implements OnInit {
-  pageTitle = "Tai Lam's Store";
+  pageTitle = 'Tai Lam\'s Store';
   imageUrl = './assets/images/tailam_logo.png';
   products: IProducts[] = [];
   // Apply interface for setting specific type of filtered product list

@@ -20,19 +20,8 @@
              [routerLink]="['/products/list']">Product List</a></li>
         <li><a class="nav-link"
              [routerLink]="['/products/new']">Create Product</a></li>
-        <li><a class="nav-link" [routerLink]="['/login']" ></a>Login</li>
+        <li><a class="nav-link" [routerLink]="['/login']">Login</a></li>
       </ul>
-      <form id="searchForm" class="navbar-form navbar-right">
-        <div class="form-group">
-          <input
-            type="text"
-            [(ngModel)]='listFilter'
-            class="form-control"
-            placeholder="Search Products..."
-          />
-        </div>
-      </form>
-      <button class="btn btn-primary">Search</button>
     </nav>
     <div class="container">
       <router-outlet></router-outlet>

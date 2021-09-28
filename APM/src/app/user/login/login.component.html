@@ -1,0 +1,57 @@
+<div class="card"
+     style="width: 100%;">
+  <div class="card-header" style='text-align: center; color: steelblue; height: 40px; font-weight: bold;'>
+    {{pageTitle}}
+  </div>
+  <div class="card-body" style="width: 100%;">
+    <div class="col-md-4">
+      <form #loginForm="ngForm"
+            (ngSubmit)="login(loginForm.value)"
+            autocomplete="off"
+            novalidate>
+        <div class="form-group">
+          <label for="userName">User Name:</label>
+          &nbsp;
+          <em *ngIf="
+          loginForm.controls.userName?.invalid &&
+          (loginForm.controls.userName?.touched || mouseoverLogin)">*Required</em>
+          <input (ngModel)="(userName)"
+                 name="userName"
+                 required
+                 id="userName"
+                 type="text"
+                 class="form-control"
+                 placeholder="User Name..." />
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          &nbsp;
+          <em *ngIf="
+          loginForm.controls.password?.invalid &&
+          (loginForm.controls.password?.touched || mouseoverLogin)">*Required</em>
+          <input (ngModel)="(password)"
+                 name="password"
+                 required
+                 id="password"
+                 type="password"
+                 class="form-control"
+                 placeholder="Password..." />
+        </div>
+
+        <span (mouseenter)="mouseoverLogin = true"
+              (mouseleave)="mouseoverLogin = false">
+          <button type="submit"
+                  [disabled]="loginForm.invalid"
+                  class="btn btn-primary">
+            Login
+          </button>
+        </span>
+        <button type="button"
+                (click)="cancelBtn()"
+                class="btn btn-default pad-left">
+          Cancel
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
