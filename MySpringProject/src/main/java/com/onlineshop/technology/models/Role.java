@@ -25,7 +25,6 @@ public class Role implements Serializable {
         this.id = id;
     }
 
-    @Id
     public Long getId() {
         return id;
     }

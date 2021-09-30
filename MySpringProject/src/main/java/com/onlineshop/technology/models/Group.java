@@ -34,7 +34,6 @@ public class Group implements Serializable {
         this.id = id;
     }
 
-    @Id
     public Long getId() {
         return id;
     }

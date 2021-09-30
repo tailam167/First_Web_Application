@@ -31,7 +31,6 @@ public class UserLogin implements Serializable {
         this.id = id;
     }
 
-    @Id
     public Long getId() {
         return id;
     }

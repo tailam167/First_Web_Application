@@ -32,7 +32,6 @@ public class Features implements Serializable {
         this.id = id;
     }
 
-    @Id
     public Long getId() {
         return id;
     }
