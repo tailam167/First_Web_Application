@@ -2,6 +2,8 @@ SELECT
     *
 FROM
     employees;
+    
+select * from product
 --SELECT * FROM emp_details_view;
 
 -- Demo Scope and Visibility of Variables and Blocks Labels

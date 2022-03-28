@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProductDetailComponent implements OnInit {
 
-  productDetailPageTitle = 'Product Detail';
+  productDetailPageTitle = 'Chi tiết sản phẩm';
   product!: IProducts;
   errorMessage = '';
   products: IProducts[] = [];

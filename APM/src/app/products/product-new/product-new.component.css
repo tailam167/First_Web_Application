@@ -1,9 +1,13 @@
 .form-group label {
-  color: steelblue;
+  color: black;
   font-size: large;
 }
 
 .form-group input {
+  margin-left: 10px;
+}
+
+.form-group textarea {
   margin-left: 10px;
 }
 

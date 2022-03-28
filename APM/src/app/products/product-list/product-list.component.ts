@@ -1,5 +1,5 @@
 import { ProductServeice } from '../product.service';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { IProducts } from '../product.interface';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -10,10 +10,10 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 
 // Lesson 1: Component
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit, AfterViewInit {
   // Building a template
-  productPageTitle = 'Product List';
-  filterByTxt = 'Search';
+  productPageTitle = 'Danh sách sản phẩm';
+  filterByTxt = 'Tìm kiếm';
   imageWidth = 50;
   imageMargin = 5;
   showImage = false;
@@ -46,6 +46,10 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('In OnInit process...');
+    this.getProducts();
+  }
+
+  ngAfterViewInit(): void {
     this.getProducts();
   }
 

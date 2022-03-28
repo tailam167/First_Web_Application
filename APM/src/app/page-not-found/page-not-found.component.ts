@@ -11,9 +11,11 @@ export class PageNotFoundComponent implements OnInit {
 
   ngOnInit(): void {
     const self = this;
+    // tslint:disable-next-line: typedef
+    // tslint:disable-next-line: only-arrow-functions
     setTimeout(function() {
       self.router.navigateByUrl('/welcome');
-    }, 4000);
+    }, 3000);
   }
 
 }

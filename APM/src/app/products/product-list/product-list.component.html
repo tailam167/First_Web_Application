@@ -1,18 +1,17 @@
 <div class='card'>
   <div class='card-header'
-       style='text-align: center; color: steelblue; height: 40px; font-weight: bold;'>
+       style='text-align: center; color: black; height: 40px; font-weight: bold;'>
     {{productPageTitle}}
   </div>
-  <div class='card-bdy container'
+  <div class='card-bdy'
        id="main-container">
-    <div class='row'
-         style="text-align:left">
-      <div class='col-sm-1'>
+    <div style="text-align:left; display: flex;">
+      <div style="margin-right: 10px;">
         <h5>{{filterByTxt + ':'}}</h5>
       </div>
       <div class='col-sm-1'>
         <input type='text'
-               [(ngModel)]='listFilter' />
+               [(ngModel)]='listFilter'/>
       </div>
     </div>
     <div class='table-responsive'
@@ -20,14 +19,16 @@
       <table class='table'
              *ngIf='products.length'>
         <thead>
-          <tr>
-            <th>Image</th>
-            <th>Product</th>
-            <th>Code</th>
-            <th>Available</th>
-            <th>Price</th>
-            <th>Rating</th>
-            <th>Action</th>
+          <tr style="color: black;">
+            <th>HÌnh ảnh</th>
+            <th>Sản Phẩm</th>
+            <th>Mã Sản Phẩm</th>
+            <th>Loại Sản Phẩm</th>
+            <th>Ngày Sản Xuất</th>
+            <th>Số Lượng</th>
+            <th>Đơn Giá</th>
+            <th>Đánh Giá</th>
+            <th>Chỉnh sửa / Xóa</th>
           </tr>
         </thead>
         <tbody>
@@ -42,7 +43,9 @@
               <a [routerLink]="[ '/products', product.productId ]">{{product.productName}}</a>
             </td>
             <td>{{product.productCode}}</td>
-            <td>{{product.releaseDate | date}}</td>
+            <td>{{product.productType}}</td>
+            <td>{{product.releaseDate | date:"dd-MM-YYYY"}}</td>
+            <td>{{product.quantity}}</td>
             <td>{{product.price | currency:'USD':'symbol':'1.2-2'}}</td>
             <td>
               <pm-star [rating]='product.starRating'></pm-star>

@@ -21,107 +21,59 @@ public class Product implements Serializable {
 	@Id
 	@Column(name = "product_id", nullable = false, updatable = false)
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@JsonFormat(shape = JsonFormat.Shape.NUMBER_INT)
 	private Integer productId;
 
 	@Column(name = "product_name")
+	@JsonFormat(shape = JsonFormat.Shape.STRING)
 	private String productName;
 
 	@Column(name = "product_code")
+	@JsonFormat(shape = JsonFormat.Shape.STRING)
 	private String productCode;
 
 	@Column(name = "release_date")
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private Date releaseDate;
 
 	@Column(name = "description")
+	@JsonFormat(shape = JsonFormat.Shape.STRING)
 	private String description;
 
 	@Column(name = "price")
+	@JsonFormat(shape = JsonFormat.Shape.NUMBER_FLOAT)
 	private Float price;
 
 	@Column(name = "star_rating")
+	@JsonFormat(shape = JsonFormat.Shape.NUMBER_FLOAT)
 	private Float starRating;
 
 	@Column(name = "image_url")
+	@JsonFormat(shape = JsonFormat.Shape.STRING)
 	private String imageUrl;
-	
+
+	@Column(name = "product_type")
+	@JsonFormat(shape = JsonFormat.Shape.STRING)
+	private String productType;
+
+	@Column(name = "quantity")
+	@JsonFormat(shape = JsonFormat.Shape.NUMBER_INT)
+	private Integer quantity;
+
+	public Product(Integer productId, String productName, String productCode, Date releaseDate, String description, Float price, Float starRating, String imageUrl, String productType, Integer quantity) {
+		this.productId = productId;
+		this.productName = productName;
+		this.productCode = productCode;
+		this.releaseDate = releaseDate;
+		this.description = description;
+		this.price = price;
+		this.starRating = starRating;
+		this.imageUrl = imageUrl;
+		this.productType = productType;
+		this.quantity = quantity;
+	}
+
 	public Product() {
-	}
 
-	public Product(Integer productId, String productName, String productCode, Date releaseDate, String description,
-			Float price, Float starRating, String imageUrl) {
-		this.productId = productId;
-		this.productName = productName;
-		this.productCode = productCode;
-		this.releaseDate = releaseDate;
-		this.description = description;
-		this.price = price;
-		this.starRating = starRating;
-		this.imageUrl = imageUrl;
 	}
-
-	public Integer getProductId() {
-		return productId;
-	}
-
-	public void setProductId(Integer productId) {
-		this.productId = productId;
-	}
-
-	public String getProductName() {
-		return productName;
-	}
-
-	public void setProductName(String productName) {
-		this.productName = productName;
-	}
-
-	public String getProductCode() {
-		return productCode;
-	}
-
-	public void setProductCode(String productCode) {
-		this.productCode = productCode;
-	}
-
-	public Date getReleaseDate() {
-		return releaseDate;
-	}
-
-	public void setReleaseDate(Date releaseDate) {
-		this.releaseDate = releaseDate;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public Float getPrice() {
-		return price;
-	}
-
-	public void setPrice(Float price) {
-		this.price = price;
-	}
-
-	public Float getStarRating() {
-		return starRating;
-	}
-
-	public void setStarRating(Float starRating) {
-		this.starRating = starRating;
-	}
-
-	public String getImageUrl() {
-		return imageUrl;
-	}
-
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
-
 }
