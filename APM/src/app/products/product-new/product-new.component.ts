@@ -12,19 +12,13 @@ import { ProductServeice } from './../product.service';
 
 export class ProductNewComponent implements OnInit {
   @Output() saveNewProduct = new EventEmitter();
-  productList = [
-    { id: 1, name: "Dung dịch tạo màng - Chitosan (5%)" },
-    { id: 2, name: "Hộp bã mía phân hủy sinh học Green Choice" },
-  ];
 
   products?: any;
   numRegex = /^-?\d*[.,]?\d{1,5}$/;
   productName!: FormControl;
   productCode!: FormControl;
-  productType!: FormControl;
   releaseDate!: FormControl;
   description!: FormControl;
-  quantity!: FormControl;
   price!: FormControl;
   starRating!: FormControl;
   imageUrl!: FormControl;
@@ -37,41 +31,33 @@ export class ProductNewComponent implements OnInit {
   ngOnInit(): void {
     this.productName = new FormControl('', Validators.required);
     this.productCode = new FormControl('', Validators.required);
-    this.productType = new FormControl('', Validators.required);
-    this.releaseDate = new FormControl(new Date(), Validators.required);
+    this.releaseDate = new FormControl('', Validators.required);
     this.description = new FormControl('', Validators.required);
-    this.quantity = new FormControl('', [Validators.required,
-      Validators.min(1),
-  ]);
-    this.price = new FormControl('', [Validators.required,
-    Validators.min(1),
-  ]);
+    this.price = new FormControl('', Validators.required);
     this.starRating = new FormControl('', [
       Validators.required,
       Validators.pattern(this.numRegex),
       Validators.min(1),
       Validators.max(5),
     ]);
-    this.imageUrl = new FormControl('', [Validators.required, ]);
+    this.imageUrl = new FormControl('', Validators.required);
 
     this.productForm = new FormGroup({
       productName: this.productName,
       productCode: this.productCode,
-      productType: this.productType,
       releaseDate: this.releaseDate,
       description: this.description,
-      quantity: this.quantity,
       price: this.price,
       starRating: this.starRating,
       imageUrl: this.imageUrl,
     });
   }
 
-  public saveEvent(productForm: FormGroup): void {
-    if (this.productForm.value) {
-      this.productService.addProduct(this.productForm.value).subscribe(
+  public saveEvent(formValues: FormGroup): void {
+    if (formValues.value.valid) {
+      this.productService.addProduct(formValues.value).subscribe(
         () => {
-          this.productForm.reset();
+          formValues.reset();
           return true;
         },
         (error) => {

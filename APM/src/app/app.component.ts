@@ -12,7 +12,7 @@ import { IProducts } from './products/product.interface';
 
 // Class
 export class AppComponent implements OnInit {
-  pageTitle = 'Công Ty TNHH Green Choice';
+  pageTitle = 'Tai Lam\'s Store';
   imageUrl = './assets/images/tailam_logo.png';
   products: IProducts[] = [];
   // Apply interface for setting specific type of filtered product list
@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
       if (
         product.productName.toLowerCase().indexOf(key.toLowerCase()) !== -1 ||
         product.productCode.toLowerCase().indexOf(key.toLowerCase()) !== -1 ||
-        product.releaseDate.toDateString().toLowerCase().indexOf(key.toLowerCase()) !== -1 ||
+        product.releaseDate.toLowerCase().indexOf(key.toLowerCase()) !== -1 ||
         product.description.toLowerCase().indexOf(key.toLowerCase()) !== -1 ||
         product.price.toString().indexOf(key.toLowerCase()) !== -1 ||
         product.starRating.toString().indexOf(key.toLowerCase()) !== -1 ||

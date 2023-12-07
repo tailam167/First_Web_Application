@@ -20,15 +20,13 @@
              *ngIf='products.length'>
         <thead>
           <tr style="color: black;">
-            <th>HÌnh ảnh</th>
-            <th>Sản Phẩm</th>
-            <th>Mã Sản Phẩm</th>
-            <th>Loại Sản Phẩm</th>
-            <th>Ngày Sản Xuất</th>
-            <th>Số Lượng</th>
-            <th>Đơn Giá</th>
-            <th>Đánh Giá</th>
-            <th>Chỉnh sửa / Xóa</th>
+            <th>Image</th>
+            <th>Product</th>
+            <th>Code</th>
+            <th>Available</th>
+            <th>Price</th>
+            <th>Rating</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -43,9 +41,7 @@
               <a [routerLink]="[ '/products', product.productId ]">{{product.productName}}</a>
             </td>
             <td>{{product.productCode}}</td>
-            <td>{{product.productType}}</td>
             <td>{{product.releaseDate | date:"dd-MM-YYYY"}}</td>
-            <td>{{product.quantity}}</td>
             <td>{{product.price | currency:'USD':'symbol':'1.2-2'}}</td>
             <td>
               <pm-star [rating]='product.starRating'></pm-star>

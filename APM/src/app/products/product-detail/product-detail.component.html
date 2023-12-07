@@ -8,35 +8,27 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="row">
-                    <div class="col-md-3"> Tên Sản Phẩm: </div>
+                    <div class="col-md-3"> Name: </div>
                     <div class="col-md-6">{{product.productName}}</div>
                 </div>
                 <div class="row">
-                    <div class="col-md-3"> Mã Sản Phẩm: </div>
+                    <div class="col-md-3"> Code: </div>
                     <div class="col-md-6">{{product.productCode}}</div>
                 </div>
                 <div class="row">
-                  <div class="col-md-3"> Loại Sản Phẩm: </div>
-                  <div class="col-md-6">{{product.productType}}</div>
-              </div>
-                <div class="row">
-                    <div class="col-md-3"> Mô Tả: </div>
+                    <div class="col-md-3"> Description: </div>
                     <div class="col-md-6">{{product.description}}</div>
                 </div>
                 <div class="row">
-                    <div class="col-md-3"> Ngày Sản Xuất: </div>
-                    <div class="col-md-6">{{product.releaseDate | date:"dd-MM-YYYY"}}</div>
+                    <div class="col-md-3"> Availability: </div>
+                    <div class="col-md-6">{{product.releaseDate}}</div>
                 </div>
                 <div class="row">
-                  <div class="col-md-3"> Số Lượng: </div>
-                  <div class="col-md-6">{{product.quantity}}</div>
-              </div>
-                <div class="row">
-                    <div class="col-md-3"> Đơn Giá: </div>
+                    <div class="col-md-3"> Price: </div>
                     <div class="col-md-6">{{product.price | currency:'USD':'symbol':'1.2-2'}}</div>
                 </div>
                 <div class="row">
-                    <div class="col-md-3"> Đánh giá: </div>
+                    <div class="col-md-3"> StarRating: </div>
                     <div class="col-md-6">
                         <pm-star [rating]='product.starRating'
                                  (ratingClicked)='onRatingClicked($event)'></pm-star>
@@ -45,9 +37,9 @@
                 <div class="row" style="font-size: larger; color: darkred;">
                     <div class="col-md-12"> {{messageRatingClicked}} </div>
                 </div>
-                <!-- <div class="row">
+                <div class="row">
                    <div class="col-md-12"><img src='./assets/images/tailam.png'></div>
-                </div> -->
+                </div>
             </div>
             <div class="col-md-3">
                 <img src={{product.imageUrl}}

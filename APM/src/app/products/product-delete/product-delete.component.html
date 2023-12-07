@@ -4,18 +4,18 @@
   <div class="modal-content">
     <div class="modal-header">
       <h5 class="modal-title"
-          id="deleteModelLabel">Xóa Sản Phẩm</h5>
+          id="deleteModelLabel">Delete Product</h5>
     </div>
     <div class="modal-body">
-      <p>Bạn có muốn xóa sản phẩm {{deleteProduct?.productName}}?</p>
+      <p>Do you want to delete product {{deleteProduct?.productName}}?</p>
       <div class="modal-footer">
         <button type="button"
                 class="btn btn-secondary"
                 (click)="cancel()"
-                data-dismiss="modal">Không</button>
+                data-dismiss="modal">No</button>
         <button (click)="onDeleteProduct(deleteProduct?.productId)"
                 class="btn btn-danger"
-                data-dismiss="modal">Có</button>
+                data-dismiss="modal">Yes</button>
       </div>
     </div>
   </div>

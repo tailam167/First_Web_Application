@@ -52,14 +52,6 @@ public class Product implements Serializable {
 	@JsonFormat(shape = JsonFormat.Shape.STRING)
 	private String imageUrl;
 
-	@Column(name = "product_type")
-	@JsonFormat(shape = JsonFormat.Shape.STRING)
-	private String productType;
-
-	@Column(name = "quantity")
-	@JsonFormat(shape = JsonFormat.Shape.NUMBER_INT)
-	private Integer quantity;
-
 	public Product(Integer productId, String productName, String productCode, Date releaseDate, String description, Float price, Float starRating, String imageUrl, String productType, Integer quantity) {
 		this.productId = productId;
 		this.productName = productName;
@@ -69,8 +61,6 @@ public class Product implements Serializable {
 		this.price = price;
 		this.starRating = starRating;
 		this.imageUrl = imageUrl;
-		this.productType = productType;
-		this.quantity = quantity;
 	}
 
 	public Product() {

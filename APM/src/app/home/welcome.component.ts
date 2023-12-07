@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.css']
+  templateUrl: './welcome.component.html'
 })
 export class WelcomeComponent {
-  public pageTitle = 'Chào mừng bạn đến với Công ty TNHH Green Choice';
+  public pageTitle = 'Welcome to Tai Lam Store';
 }
