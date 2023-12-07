@@ -31,18 +31,16 @@ export class ProductNewComponent implements OnInit {
   ngOnInit(): void {
     this.productName = new FormControl('', Validators.required);
     this.productCode = new FormControl('', Validators.required);
-    this.releaseDate = new FormControl(new Date(), Validators.required);
+    this.releaseDate = new FormControl('', Validators.required);
     this.description = new FormControl('', Validators.required);
-    this.price = new FormControl('', [Validators.required,
-    Validators.min(1),
-  ]);
+    this.price = new FormControl('', Validators.required);
     this.starRating = new FormControl('', [
       Validators.required,
       Validators.pattern(this.numRegex),
       Validators.min(1),
       Validators.max(5),
     ]);
-    this.imageUrl = new FormControl('', [Validators.required, ]);
+    this.imageUrl = new FormControl('', Validators.required);
 
     this.productForm = new FormGroup({
       productName: this.productName,
@@ -55,11 +53,11 @@ export class ProductNewComponent implements OnInit {
     });
   }
 
-  public saveEvent(productForm: FormGroup): void {
-    if (this.productForm.value) {
-      this.productService.addProduct(this.productForm.value).subscribe(
+  public saveEvent(formValues: FormGroup): void {
+    if (formValues.value.valid) {
+      this.productService.addProduct(formValues.value).subscribe(
         () => {
-          this.productForm.reset();
+          formValues.reset();
           return true;
         },
         (error) => {

@@ -1,29 +1,30 @@
 <div class='card'>
   <div class='card-header'
-       style='text-align: center; color: black; height: 40px; font-weight: bold;'>
-    Sản Phẩm Mới
+       style='text-align: center; color: steelblue; height: 40px; font-weight: bold;'>
+    New Product
   </div>
-  <div class='card-body'
-       style='align-items: center;'>
-    <div class="col-md-12">
+  <div class="card-body">
+    <div class="col-md-7">
       <form [formGroup]="productForm"
-            (submit)="saveEvent(productForm.value)"
+            (ngSubmit)="saveEvent(productForm.value)"
             novalidate>
         <!-- Product Name -->
         <div class="form-group"
-             [ngClass]="{'error': productName?.invalid && productName?.touched}">
-          <label for="productName" style="margin-right: 10px;">Product Name:</label>
-          <em *ngIf="productName?.invalid && productName?.touched && productName?.errors?.required">*</em>
-          <select formControlName="productName">
-            <option [ngValue]="null" disabled>Select Product</option>
-            <option *ngFor="let product of productList" [ngValue]="product.id">{{product.name}}</option>
-          </select>
+             [ngClass]="{'error': productName.invalid && productName.touched}">
+          <label for="productName">Product Name:</label>
+          <em *ngIf="productName.invalid && (productName.touched)">*Required</em>
+          <input formControlName="productName"
+                 required
+                 id="productName"
+                 type="text"
+                 class="form-control"
+                 placeholder="Name of your product..." />
         </div>
         <!-- Product Code -->
         <div class="form-group"
-             [ngClass]="{'error': productCode?.invalid && productCode?.touched}">
+             [ngClass]="{'error': productCode.invalid && productCode.touched}">
           <label for="productCode">Product Code:</label>
-          <em *ngIf="productCode?.errors?.required">*</em>
+          <em *ngIf="productCode.invalid && (productCode.touched)">*Required</em>
           <input formControlName="productCode"
                  required
                  id="productCode"
@@ -31,99 +32,84 @@
                  class="form-control"
                  placeholder="Product Code..." />
         </div>
-        <!-- Product Release Date -->
+        <!-- Product Date -->
         <div class="form-group"
-             [ngClass]="{'error': releaseDate?.invalid && releaseDate?.touched}">
+             [ngClass]="{'error': releaseDate.invalid && releaseDate.touched}">
           <label for="releaseDate">Release Date:</label>
-          <em *ngIf="releaseDate?.invalid && releaseDate?.touched && releaseDate?.errors?.required">*</em>
+          <em *ngIf="releaseDate.invalid && (releaseDate.touched)">*Required</em>
           <input formControlName="releaseDate"
                  required
                  id="releaseDate"
-                 type="date"
+                 type="text"
                  class="form-control"
-                 useValueAsDate/>
+                 placeholder="Format Date (mm-dd-yyyy)..." />
         </div>
         <!-- Product Description -->
         <div class="form-group"
-             [ngClass]="{'error': description?.invalid && description?.touched}">
-          <label for="description">Description:</label>
-          <em *ngIf="description?.invalid && description?.touched && description?.errors?.required">*</em>
-          <textarea formControlName="description"
-                    required
-                    id="description"
-                    type="text"
-                    class="form-control"
-                    placeholder="Descrption..."></textarea>
+             [ngClass]="{'error': description.invalid && description.touched}">
+          <label for="description">Product Description:</label>
+          <em *ngIf="description.invalid && (description.touched)">*Required</em>
+          <input formControlName="description"
+                 required
+                 id="description"
+                 type="text"
+                 class="form-control"
+                 placeholder="Product Description..." />
         </div>
         <!-- Product Price -->
         <div class="form-group"
-             [ngClass]="{'error': price?.invalid && price?.touched}">
-          <label for="price">Price:</label>
-          <em *ngIf="price?.invalid && price?.touched && price?.errors?.required">*</em>
-          <em *ngIf="price?.invalid && price?.touched ||
-          price?.errors?.min">*Price need to be possitivev number and minimum is 1</em>
+             [ngClass]="{'error': price.invalid && price.touched}">
+          <label for="price">Product Price:</label>
+          <em *ngIf="price.invalid && (price.touched)">*Required</em>
           <input formControlName="price"
                  required
                  id="price"
                  type="number"
                  class="form-control"
-                 placeholder="Price..." />
+                 placeholder="Product Price..." />
         </div>
         <!-- Product Start Rating -->
         <div class="form-group"
-             [ngClass]="{'error': starRating?.invalid && starRating?.touched}">
-          <label for="starRating">Rate:</label>
-          <em *ngIf="starRating?.invalid && starRating?.touched && starRating?.errors?.required">*</em>
-          <ul>
-            <input formControlName="starRating"
-                   required
-                   id="starRating"
-                   type="radio"
-                   value="1" /> 1
-            <input formControlName="starRating"
-                   required
-                   id="starRating"
-                   type="radio"
-                   value="2" /> 2
-            <input formControlName="starRating"
-                   required
-                   id="starRating"
-                   type="radio"
-                   value="3" /> 3
-            <input formControlName="starRating"
-                   required
-                   id="starRating"
-                   type="radio"
-                   value="4" /> 4
-            <input formControlName="starRating"
-                   required
-                   id="starRating"
-                   type="radio"
-                   value="5" /> 5
-          </ul>
+             [ngClass]="{'error': starRating.invalid && starRating.touched}">
+          <label for="starRating">Product Rating:</label>
+          <em *ngIf="starRating.invalid && starRating.touched && starRating.errors?.required">*Required</em>
+          <em *ngIf="starRating.invalid && productForm.get('starRating')?.hasError('pattern')
+              || starRating.errors?.min || starRating.errors?.max">*Rating
+            must be between 1 and 5</em>
+          <input formControlName="starRating"
+                 id="starRating"
+                 type="number"
+                 class="form-control"
+                 placeholder="Product Rating..." />
         </div>
         <!-- Product Image -->
-        [ngClass]="{'error': imageUrl.invalid && imageUrl.touched}">
-        <label for="imageUrl">Image:</label>
-        <em *ngIf="imageUrl.invalid && imageUrl.touched && imageUrl.errors?.required">*Required</em>
-        <em *ngIf="imageUrl.invalid && imageUrl.touched  && imageUrl.errors?.pattern">*Must
-          be a png or jpg url</em>
-        <input formControlName="imageUrl"
-               required
-               pattern=".*\/.*.(png|jpg)"
-               id="imageUrl"
-               type="text"
-               class="form-control"
-               placeholder="Product Image URL..." />
+        <div class="form-group"
+             [ngClass]="{'error': imageUrl.invalid && imageUrl.touched}">
+          <label for="imageUrl">Image:</label>
+          <em *ngIf="imageUrl.invalid && imageUrl.touched && imageUrl.errors?.required">*Required</em>
+          <em *ngIf="imageUrl.invalid && imageUrl.touched  && imageUrl.errors?.pattern">*Must
+            be a png or jpg url</em>
+          <input formControlName="imageUrl"
+                 required
+                 pattern=".*\/.*.(png|jpg)"
+                 id="imageUrl"
+                 type="text"
+                 class="form-control"
+                 placeholder="Product Image URL..." />
+          <br>
+          <img [src]="imageUrl.value"
+               *ngIf="imageUrl.valid"
+               [style.width.px]='200'
+               [style.margin.px]='2' />
+        </div>
         <!-- Button -->
         <button type="submit"
-                [disabled]="!productForm?.valid"
-                class="btn btn-primary">Lưu</button>
+                class="btn btn-primary">Save</button>
         <button type="button"
                 class="btn btn-default pad-left"
                 (click)="cancel()">Cancel</button>
         <span *ngIf="validMessage != ''"
-              class="has-info pad-left">{{validMessage}}</span>
+            class="has-info pad-left">{{validMessage}}</span>
       </form>
     </div>
   </div>

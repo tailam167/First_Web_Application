@@ -13,7 +13,7 @@ export class ProductDeleteComponent implements OnInit {
   deleteProduct!: IProducts;
   validMessage?: string;
   products: IProducts[] = [];
-  errorMessage = '';
+  errorMessage: string = '';
 
   constructor(
     private route: ActivatedRoute,

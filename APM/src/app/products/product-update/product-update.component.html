@@ -3,7 +3,7 @@
   <div class="modal-content">
     <div class="modal-header">
       <h5 class="modal-title"
-          id="updateProductModalLabel">Update Product: {{editProduct?.productName}}</h5>
+          id="updateProductModalLabel">Update Product: {{editProduct.productName}}</h5>
     </div>
     <div class="modal-body">
       <form #updateForm="ngForm"
@@ -54,12 +54,13 @@
           <label for="releaseDate">Release Date</label>
           <em
               *ngIf="updateForm.controls.releaseDate?.invalid && (updateForm.controls.releaseDate?.touched)">*Required</em>
-          <input type="date"
+          <input type="text"
                  required
+                 ngModel="{{editProduct?.releaseDate}}"
                  name="releaseDate"
                  class="form-control"
-                 ngModel="{{editProduct?.releaseDate}}"
-                 id="releaseDate">
+                 id="releaseDate"
+                 placeholder="New Release Date (DD-MM-YYYY)...">
         </div>
         <!-- Description -->
         <div class="form-group"
@@ -67,14 +68,14 @@
           <label for="description">Description</label>
           <em
               *ngIf="updateForm.controls.description?.invalid && (updateForm.controls.description?.touched)">*Required</em>
-          <textarea type="text"
+          <input type="text"
                  required
                  ngModel="{{editProduct?.description}}"
                  name="description"
                  class="form-control"
                  id="description"
                  name="description"
-                 placeholder="New Product Description..."></textarea>
+                 placeholder="New Product Description...">
         </div>
         <!-- Price -->
         <div class="form-group"
@@ -92,7 +93,7 @@
         <!-- Star Rating -->
         <div class="form-group"
              [ngClass]="{'error': updateForm.controls.starRating?.invalid && updateForm.controls.starRating?.touched}">
-          <label for="starRating">Rate</label>
+          <label for="starRating">Rating</label>
           <em
               *ngIf="updateForm.controls.starRating?.invalid && (updateForm.controls.starRating?.touched)">*Required</em>
           <input type="number"
@@ -106,27 +107,22 @@
         <!-- Image URL -->
         <div class="form-group"
              [ngClass]="{'error': updateForm.controls.imageUrl?.invalid && updateForm.controls.imageUrl?.touched}">
-             <label for="imageUrl">Image URL</label>
+          <label for="imageUrl">Image URL</label>
           <em *ngIf="updateForm.controls.imageUrl?.invalid && (updateForm.controls.imageUrl?.touched)">*Required</em>
           <input type="text"
-          required
-          ngModel="{{editProduct?.imageUrl}}"
-          name="imageUrl"
-          class="form-control"
-          id="imageUrl"
-          placeholder="New Product Image Url...">
-          <br>
-          <img [src]="updateForm.controls.imageUrl?.value"
-               *ngIf="updateForm.controls.imageUrl?.valid"
-               [style.width.px]='200'
-               [style.margin.px]='2' />
+                 required
+                 ngModel="{{editProduct?.imageUrl}}"
+                 name="imageUrl"
+                 class="form-control"
+                 id="imageUrl"
+                 placeholder="New Product Image Url...">
         </div>
         <div class="modal-footer">
           <span *ngIf="validMessage != ''"
                 class="has-info pad-left">{{validMessage}}</span>
           <button (click)="onUpdateProduct(updateForm.value)"
                   class="btn btn-primary"
-                  [disabled]="!(updateForm.valid && updateForm.dirty)">Save Changes</button>
+                  [disabled]="updateForm.invalid">Save changes</button>
           <button type="button"
                   (click)="cancel()"
                   class="btn btn-secondary pad-left">Close</button>

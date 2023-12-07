@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
       if (
         product.productName.toLowerCase().indexOf(key.toLowerCase()) !== -1 ||
         product.productCode.toLowerCase().indexOf(key.toLowerCase()) !== -1 ||
-        product.releaseDate.toDateString().toLowerCase().indexOf(key.toLowerCase()) !== -1 ||
+        product.releaseDate.toLowerCase().indexOf(key.toLowerCase()) !== -1 ||
         product.description.toLowerCase().indexOf(key.toLowerCase()) !== -1 ||
         product.price.toString().indexOf(key.toLowerCase()) !== -1 ||
         product.starRating.toString().indexOf(key.toLowerCase()) !== -1 ||
