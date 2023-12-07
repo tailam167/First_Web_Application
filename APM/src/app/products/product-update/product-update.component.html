@@ -23,7 +23,7 @@
         <!-- Product Name -->
         <div class="form-group"
              [ngClass]="{'error': updateForm.controls.productName?.invalid && updateForm.controls.productName?.touched}">
-          <label for="productName">Tên Sản Phẩm</label>
+          <label for="productName">Product Name</label>
           <em
               *ngIf="updateForm.controls.productName?.invalid && (updateForm.controls.productName?.touched)">*Required</em>
           <input type="text"
@@ -37,7 +37,7 @@
         <!-- Product Code -->
         <div class="form-group"
              [ngClass]="{'error': updateForm.controls.productCode?.invalid && updateForm.controls.productCode?.touched}">
-          <label for="productCode">Mã Sản Phẩm</label>
+          <label for="productCode">Product Code</label>
           <em
               *ngIf="updateForm.controls.productCode?.invalid && (updateForm.controls.productCode?.touched)">*Required</em>
           <input type="productCode"
@@ -48,56 +48,10 @@
                  id="productCode"
                  placeholder="New Product Code...">
         </div>
-        <!-- Product Type -->
-        <div class="form-group"
-             [ngClass]="{'error': updateForm.controls.productType?.invalid && updateForm.controls.productType?.touched}">
-          <label for="productType">Loại Sản Phẩm</label>
-          <em *ngIf="updateForm.controls.productType?.invalid && (updateForm.controls.productType?.touched)">*Required</em>
-              <ul *ngIf="updateForm.controls.productName?.value === 'Dung dịch tạo màng - Chitosan (5%)'">
-                <input name="productType"
-                       required
-                       id="productType"
-                       type="radio"
-                       ngModel="{{editProduct?.productType}}"
-                       value="1L" /> 1L
-                <input name="productType"
-                       required
-                       id="productType"
-                       type="radio"
-                       ngModel="{{editProduct?.productType}}"
-                       value="5L" /> 5L
-                <input name="productType"
-                       required
-                       id="productType"
-                       type="radio"
-                       ngModel="{{editProduct?.productType}}"
-                       value="10L" /> 10L
-              </ul>
-              <ul *ngIf="updateForm.controls.productName?.value === 'Hộp bã mía phân hủy sinh học Green Choice'">
-                <input name="productType"
-                       required
-                       id="productType"
-                       type="radio"
-                       ngModel="{{editProduct?.productType}}"
-                       value="450ML" /> 450ML
-                <input name="productType"
-                       required
-                       id="productType"
-                       type="radio"
-                       ngModel="{{editProduct?.productType}}"
-                       value="600ML" /> 600ML
-                <input name="productType"
-                       required
-                       id="productType"
-                       type="radio"
-                       ngModel="{{editProduct?.productType}}"
-                       value="720ML" /> 720ML
-              </ul>
-        </div>
         <!-- Release Date -->
         <div class="form-group"
              [ngClass]="{'error': updateForm.controls.releaseDate?.invalid && updateForm.controls.releaseDate?.touched}">
-          <label for="releaseDate">Ngày Sản Xuất</label>
+          <label for="releaseDate">Release Date</label>
           <em
               *ngIf="updateForm.controls.releaseDate?.invalid && (updateForm.controls.releaseDate?.touched)">*Required</em>
           <input type="date"
@@ -110,7 +64,7 @@
         <!-- Description -->
         <div class="form-group"
              [ngClass]="{'error': updateForm.controls.description?.invalid && updateForm.controls.description?.touched}">
-          <label for="description">Mô Tả</label>
+          <label for="description">Description</label>
           <em
               *ngIf="updateForm.controls.description?.invalid && (updateForm.controls.description?.touched)">*Required</em>
           <textarea type="text"
@@ -122,23 +76,10 @@
                  name="description"
                  placeholder="New Product Description..."></textarea>
         </div>
-         <!-- Quantity -->
-         <div class="form-group"
-         [ngClass]="{'error': updateForm.controls.quantity?.invalid && updateForm.controls.quantity?.touched}">
-      <label for="quantity">Số Lượng</label>
-      <em *ngIf="updateForm.controls.quantity?.invalid && (updateForm.controls.quantity?.touched)">*Required</em>
-      <input type="number"
-             required
-             ngModel="{{editProduct?.quantity}}"
-             name="quantity"
-             class="form-control"
-             id="quantity"
-             placeholder="New Product Quantity...">
-    </div>
         <!-- Price -->
         <div class="form-group"
              [ngClass]="{'error': updateForm.controls.price?.invalid && updateForm.controls.price?.touched}">
-          <label for="price">Đơn Giá</label>
+          <label for="price">Price</label>
           <em *ngIf="updateForm.controls.price?.invalid && (updateForm.controls.price?.touched)">*Required</em>
           <input type="number"
                  required
@@ -151,7 +92,7 @@
         <!-- Star Rating -->
         <div class="form-group"
              [ngClass]="{'error': updateForm.controls.starRating?.invalid && updateForm.controls.starRating?.touched}">
-          <label for="starRating">Đánh Giá</label>
+          <label for="starRating">Rate</label>
           <em
               *ngIf="updateForm.controls.starRating?.invalid && (updateForm.controls.starRating?.touched)">*Required</em>
           <input type="number"
@@ -165,48 +106,15 @@
         <!-- Image URL -->
         <div class="form-group"
              [ngClass]="{'error': updateForm.controls.imageUrl?.invalid && updateForm.controls.imageUrl?.touched}">
-          <label for="imageUrl">Hình Ảnh</label>
+             <label for="imageUrl">Image URL</label>
           <em *ngIf="updateForm.controls.imageUrl?.invalid && (updateForm.controls.imageUrl?.touched)">*Required</em>
-          <ul *ngIf="updateForm.controls.productName?.value === 'Dung dịch tạo màng - Chitosan (5%)'">
-            <input name="imageUrl"
-                   required
-                   id="imageUrl"
-                   type="radio"
-                   ngModel="{{editProduct?.imageUrl}}"
-                   value="assets/images/1L.png"/> 1L
-            <input name="imageUrl"
-                   required
-                   id="imageUrl"
-                   type="radio"
-                   ngModel="{{editProduct?.imageUrl}}"
-                   value="assets/images/5L.png"/> 5L
-            <input name="imageUrl"
-                   required
-                   id="imageUrl"
-                   type="radio"
-                   ngModel="{{editProduct?.imageUrl}}"
-                   value="assets/images/10L.png"/> 10L
-          </ul>
-          <ul *ngIf="updateForm.controls.productName?.value === 'Hộp bã mía phân hủy sinh học Green Choice'">
-            <input name="imageUrl"
-                   required
-                   id="imageUrl"
-                   type="radio"
-                   ngModel="{{editProduct?.imageUrl}}"
-                   value="assets/images/450ML.jpg"/> 450ML
-            <input name="imageUrl"
-                   required
-                   id="imageUrl"
-                   type="radio"
-                   ngModel="{{editProduct?.imageUrl}}"
-                   value="assets/images/600ML.jpg"/> 600ML
-            <input name="imageUrl"
-                   required
-                   id="imageUrl"
-                   type="radio"
-                   ngModel="{{editProduct?.imageUrl}}"
-                   value="assets/images/720ML.jpg"/> 720ML
-          </ul>
+          <input type="text"
+          required
+          ngModel="{{editProduct?.imageUrl}}"
+          name="imageUrl"
+          class="form-control"
+          id="imageUrl"
+          placeholder="New Product Image Url...">
           <br>
           <img [src]="updateForm.controls.imageUrl?.value"
                *ngIf="updateForm.controls.imageUrl?.valid"
@@ -218,10 +126,10 @@
                 class="has-info pad-left">{{validMessage}}</span>
           <button (click)="onUpdateProduct(updateForm.value)"
                   class="btn btn-primary"
-                  [disabled]="!(updateForm.valid && updateForm.dirty)">Lưu thay đổi</button>
+                  [disabled]="!(updateForm.valid && updateForm.dirty)">Save Changes</button>
           <button type="button"
                   (click)="cancel()"
-                  class="btn btn-secondary pad-left">Đóng</button>
+                  class="btn btn-secondary pad-left">Close</button>
         </div>
       </form>
     </div>

@@ -12,8 +12,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 // Lesson 1: Component
 export class ProductListComponent implements OnInit, AfterViewInit {
   // Building a template
-  productPageTitle = 'Danh sách sản phẩm';
-  filterByTxt = 'Tìm kiếm';
+  productPageTitle = 'Product List';
+  filterByTxt = 'Search';
   imageWidth = 50;
   imageMargin = 5;
   showImage = false;

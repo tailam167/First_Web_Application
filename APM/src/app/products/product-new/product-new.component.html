@@ -12,7 +12,7 @@
         <!-- Product Name -->
         <div class="form-group"
              [ngClass]="{'error': productName?.invalid && productName?.touched}">
-          <label for="productName" style="margin-right: 10px;">Tên Sản Phẩm:</label>
+          <label for="productName" style="margin-right: 10px;">Product Name:</label>
           <em *ngIf="productName?.invalid && productName?.touched && productName?.errors?.required">*</em>
           <select formControlName="productName">
             <option [ngValue]="null" disabled>Select Product</option>
@@ -22,59 +22,19 @@
         <!-- Product Code -->
         <div class="form-group"
              [ngClass]="{'error': productCode?.invalid && productCode?.touched}">
-          <label for="productCode">Mã Sản Phẩm:</label>
+          <label for="productCode">Product Code:</label>
           <em *ngIf="productCode?.errors?.required">*</em>
           <input formControlName="productCode"
                  required
                  id="productCode"
                  type="text"
                  class="form-control"
-                 placeholder="Mã Sản Phẩm..." />
-        </div>
-        <!-- Product Type -->
-        <div class="form-group"
-             [ngClass]="{'error': productType?.invalid && productType?.touched}">
-          <label for="productType">Loại Sản Phẩm:</label>
-          <em *ngIf="productType?.errors?.required">*</em>
-          <ul *ngIf="productName?.value === 1">
-            <input formControlName="productType"
-                   required
-                   id="productType"
-                   type="radio"
-                   value="1L" /> 1L
-            <input formControlName="productType"
-                   required
-                   id="productType"
-                   type="radio"
-                   value="5L" /> 5L
-            <input formControlName="productType"
-                   required
-                   id="productType"
-                   type="radio"
-                   value="10L" /> 10L
-          </ul>
-          <ul *ngIf="productName?.value === 2">
-            <input formControlName="productType"
-                   required
-                   id="productType"
-                   type="radio"
-                   value="450ML" /> 450ML
-            <input formControlName="productType"
-                   required
-                   id="productType"
-                   type="radio"
-                   value="600ML" /> 600ML
-            <input formControlName="productType"
-                   required
-                   id="productType"
-                   type="radio"
-                   value="720ML" /> 720ML
-          </ul>
+                 placeholder="Product Code..." />
         </div>
         <!-- Product Release Date -->
         <div class="form-group"
              [ngClass]="{'error': releaseDate?.invalid && releaseDate?.touched}">
-          <label for="releaseDate">Ngày Sản Xuất:</label>
+          <label for="releaseDate">Release Date:</label>
           <em *ngIf="releaseDate?.invalid && releaseDate?.touched && releaseDate?.errors?.required">*</em>
           <input formControlName="releaseDate"
                  required
@@ -86,47 +46,33 @@
         <!-- Product Description -->
         <div class="form-group"
              [ngClass]="{'error': description?.invalid && description?.touched}">
-          <label for="description">Mô tả:</label>
+          <label for="description">Description:</label>
           <em *ngIf="description?.invalid && description?.touched && description?.errors?.required">*</em>
           <textarea formControlName="description"
                     required
                     id="description"
                     type="text"
                     class="form-control"
-                    placeholder="Mô tả..."></textarea>
-        </div>
-        <!-- Product Quantity -->
-        <div class="form-group"
-             [ngClass]="{'error': quantity?.invalid && quantity?.touched}">
-          <label for="quantity">Số Lượng:</label>
-          <em *ngIf="quantity?.invalid && quantity?.touched && quantity?.errors?.required">*</em>
-          <em *ngIf="quantity?.invalid && quantity.touched ||
-          quantity?.errors?.min">*Số lượng cần là số dương và có giá trị nhỏ nhất là 1</em>
-          <input formControlName="quantity"
-                 required
-                 id="quantity"
-                 type="number"
-                 class="form-control"
-                 placeholder="Số Lượng..." />
+                    placeholder="Descrption..."></textarea>
         </div>
         <!-- Product Price -->
         <div class="form-group"
              [ngClass]="{'error': price?.invalid && price?.touched}">
-          <label for="price">Đơn Giá:</label>
+          <label for="price">Price:</label>
           <em *ngIf="price?.invalid && price?.touched && price?.errors?.required">*</em>
           <em *ngIf="price?.invalid && price?.touched ||
-          price?.errors?.min">*Đơn giá cần là số dương và có giá trị nhỏ nhất là 1</em>
+          price?.errors?.min">*Price need to be possitivev number and minimum is 1</em>
           <input formControlName="price"
                  required
                  id="price"
                  type="number"
                  class="form-control"
-                 placeholder="Đơn Giá..." />
+                 placeholder="Price..." />
         </div>
         <!-- Product Start Rating -->
         <div class="form-group"
              [ngClass]="{'error': starRating?.invalid && starRating?.touched}">
-          <label for="starRating">Đánh Giá:</label>
+          <label for="starRating">Rate:</label>
           <em *ngIf="starRating?.invalid && starRating?.touched && starRating?.errors?.required">*</em>
           <ul>
             <input formControlName="starRating"
@@ -157,57 +103,25 @@
           </ul>
         </div>
         <!-- Product Image -->
-        <div class="form-group"
-             [ngClass]="{'error': imageUrl?.invalid && imageUrl?.touched}">
-          <label for="imageUrl">Hình Ảnh:</label>
-          <em *ngIf="imageUrl?.invalid && imageUrl?.touched && imageUrl?.errors?.required">*</em>
-          <ul *ngIf="productName?.value === 1">
-            <input formControlName="imageUrl"
-                   required
-                   id="imageUrl"
-                   type="radio"
-                   value="assets/images/1L.png" /> 1L
-            <input formControlName="imageUrl"
-                   required
-                   id="imageUrl"
-                   type="radio"
-                   value="assets/images/5L.png" /> 5L
-            <input formControlName="imageUrl"
-                   required
-                   id="imageUrl"
-                   type="radio"
-                   value="assets/images/10L.png" /> 10L
-          </ul>
-          <ul *ngIf="productName?.value === 2">
-            <input formControlName="imageUrl"
-                   required
-                   id="imageUrl"
-                   type="radio"
-                   value="assets/images/450ML.jpg" /> 450ML
-            <input formControlName="imageUrl"
-                   required
-                   id="imageUrl"
-                   type="radio"
-                   value="assets/images/600ML.jpg" /> 600ML
-            <input formControlName="imageUrl"
-                   required
-                   id="imageUrl"
-                   type="radio"
-                   value="assets/images/720ML.jpg" /> 720ML
-          </ul>
-          <br>
-          <img [src]="imageUrl.value"
-               *ngIf="imageUrl.valid"
-               [style.width.px]='200'
-               [style.margin.px]='2' />
-        </div>
+        [ngClass]="{'error': imageUrl.invalid && imageUrl.touched}">
+        <label for="imageUrl">Image:</label>
+        <em *ngIf="imageUrl.invalid && imageUrl.touched && imageUrl.errors?.required">*Required</em>
+        <em *ngIf="imageUrl.invalid && imageUrl.touched  && imageUrl.errors?.pattern">*Must
+          be a png or jpg url</em>
+        <input formControlName="imageUrl"
+               required
+               pattern=".*\/.*.(png|jpg)"
+               id="imageUrl"
+               type="text"
+               class="form-control"
+               placeholder="Product Image URL..." />
         <!-- Button -->
         <button type="submit"
                 [disabled]="!productForm?.valid"
                 class="btn btn-primary">Lưu</button>
         <button type="button"
                 class="btn btn-default pad-left"
-                (click)="cancel()">Hủy Bỏ</button>
+                (click)="cancel()">Cancel</button>
         <span *ngIf="validMessage != ''"
               class="has-info pad-left">{{validMessage}}</span>
       </form>

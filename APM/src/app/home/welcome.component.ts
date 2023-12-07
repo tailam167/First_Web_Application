@@ -5,5 +5,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent {
-  public pageTitle = 'Chào mừng bạn đến với Công ty TNHH Green Choice';
+  public pageTitle = 'Welcome to Tai Lam Store';
 }
